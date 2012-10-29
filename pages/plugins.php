@@ -5,17 +5,12 @@ CMS Tree Page View
 Google Analytics for WordPress
 WordPress SEO
 jQuery Lightbox Balupton Edition
-Contact Form 7
 Redirection
 Widget Logic
 Search and Replace
 WordPress.com Stats
 Google Sitemap Generator
-Link to Post
-Page Links To
-Clean Notifications
-WP Super Cache
-Category Posts Widget
+Custom Post Type UI
 Really Simple CAPTCHA
 WP Facebook Open Graph protocol";
 

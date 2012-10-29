@@ -42,7 +42,7 @@ function rb_wpguru_propercase($someString) {
 }
 
 function rb_wpguru_convertdatetime($datetime) {
-  if (isset($timestamp)) {
+  if (isset($datetime)) {
 	// Convert
 	list($date, $time) = explode(' ', $datetime);
 	list($year, $month, $day) = explode('-', $date);
@@ -56,9 +56,9 @@ function rb_wpguru_convertdatetime($datetime) {
 }
 
 function rb_wpguru_makeago($timestamp){
-  if (isset($timestamp) && !empty($timestamp)) {
+  if (isset($timestamp) && !empty($timestamp) && ($timestamp <> "0000-00-00 00:00:00") && ($timestamp <> "943920000")) {
 	// Offset
-	$timezone_offset = -7; // Server Time
+	$timezone_offset = (int)$offset; // Server Time
 	$time_altered = time() + $timezone_offset *60 *60;
 
 	// Math
@@ -72,18 +72,12 @@ function rb_wpguru_makeago($timestamp){
 	$difference = round($difference);
 	if($difference != 1) $periods[$j].= "s";
 	$text = "$difference $periods[$j] ago";
+		if ($j > 10) { exit; }
 	return $text;
   } else {
 	return "--";
   }
 }
-
-function rb_wpguru_makeagox($timestamp){
-
-	return rb_empire_makeago(rb_empire_convertdatetime($timestamp), 7);
-}
-
-
 
 function rb_wpguru_formatcurrency($amount) {
 	setlocale(LC_MONETARY, 'en_US');
